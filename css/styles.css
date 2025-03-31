@@ -1,0 +1,151 @@
+/* Custom styles for the application */
+
+/* Sticky footer styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a2e;
+  color: #e6e6e6;
+}
+
+.navbar {
+  background-color: #16213e !important;
+}
+
+.card {
+  background-color: #0f3460;
+  border-color: #1a4d8c;
+}
+
+.btn-primary {
+  background-color: #2a6f97;
+  border-color: #2a6f97;
+}
+
+.btn-primary:hover {
+  background-color: #3f8cba;
+  border-color: #3f8cba;
+}
+
+.footer {
+  background-color: #16213e !important;
+}
+
+.form-control {
+  background-color: #1f4068;
+  border-color: #1a4d8c;
+  color: #e6e6e6;
+}
+
+.form-control:focus {
+  background-color: #1f4068;
+  border-color: #2a6f97;
+  color: #e6e6e6;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* Form adjustments */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Card shadow effect */
+.card {
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* User profile styles */
+.profile-header {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  background-color: var(--bs-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--bs-light);
+  margin: 0 auto 1rem;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  height: 100%;
+}
+
+.dashboard-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Alert positioning */
+.alert {
+  margin-top: 1rem;
+}
+
+/* Password strength meter */
+.password-strength-meter {
+  height: 5px;
+  margin-top: 5px;
+  background-color: var(--bs-secondary);
+  border-radius: 3px;
+  position: relative;
+}
+
+.password-strength-meter-fill {
+  height: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Custom buttons */
+.btn-action {
+  min-width: 100px;
+}
+
+/* Tables */
+.table-responsive {
+  margin-bottom: 1rem;
+}
+
+/* Validation styles */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: var(--bs-danger);
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: var(--bs-success);
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}

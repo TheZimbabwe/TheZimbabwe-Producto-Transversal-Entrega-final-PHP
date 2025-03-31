@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}Perfil - Sistema de Gestión de Usuarios{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body profile-header">
+                <div class="text-center">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2>{{ user.username }}</h2>
+                    <p class="text-muted">{{ user.email }}</p>
+                    <p>Miembro desde {{ user.created_at.strftime('%d de %B, %Y') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 order-lg-1">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Información de Perfil</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Nombre de Usuario:</strong> {{ user.username }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Correo Electrónico:</strong> {{ user.email }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Nombre Completo:</strong> {{ user.full_name or 'No establecido' }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Sitio Web:</strong> 
+                        {% if user.website %}
+                            <a href="{{ user.website }}" target="_blank" rel="noopener">
+                                {{ user.website }}
+                            </a>
+                        {% else %}
+                            No establecido
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Acciones de Cuenta</h4>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    <a href="{{ url_for('dashboard') }}" class="list-group-item list-group-item-action">
+                        <i class="fas fa-tachometer-alt me-2"></i> Panel Principal
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled">
+                        <i class="fas fa-cog me-2"></i> Configuración de Cuenta
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action text-danger">
+                        <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-8 order-lg-0">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Editar Perfil</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('profile') }}">
+                    <input type="hidden" name="update_profile" value="1">
+                    
+                    <div class="mb-3">
+                        <label for="full_name" class="form-label">Nombre Completo</label>
+                        <input type="text" class="form-control" id="full_name" name="full_name" 
+                               value="{{ user.full_name or '' }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Biografía</label>
+                        <textarea class="form-control" id="bio" name="bio" rows="3">{{ user.bio or '' }}</textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="website" class="form-label">Sitio Web</label>
+                        <input type="url" class="form-control" id="website" name="website" 
+                               value="{{ user.website or '' }}">
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card" id="password">
+            <div class="card-header">
+                <h4 class="mb-0">Cambiar Contraseña</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('profile') }}#password" class="needs-validation" novalidate>
+                    <input type="hidden" name="change_password" value="1">
+                    
+                    <div class="mb-3">
+                        <label for="current_password" class="form-label">Contraseña Actual</label>
+                        <input type="password" class="form-control" id="current_password" name="current_password" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="new_password" class="form-label">Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="new_password" minlength="8" required>
+                        <div class="password-strength-meter mt-2">
+                            <div id="password-strength-meter-fill" class="password-strength-meter-fill"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <div class="form-text">La contraseña debe tener al menos 8 caracteres</div>
+                            <div id="password-strength-text"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label">Confirmar Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                        <div id="password-match-message" class="form-text"></div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-warning">Cambiar Contraseña</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

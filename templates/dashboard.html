@@ -1,0 +1,381 @@
+{% extends "layout.html" %}
+
+{% block title %}MDR - Lumon Industries{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="mdr-panel">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mdr-title mb-0">Terminal de Refinamiento de Datos</h2>
+                <div class="lumon-badge">
+                    <i class="fas fa-id-badge me-2"></i>
+                    Refinador: {{ user.username }}
+                </div>
+            </div>
+            <p class="lumon-welcome">Bienvenido al departamento de Macrorefinado de Datos (MDR). Recuerda que los números están esperando.</p>
+            <div class="lumon-stats d-flex justify-content-between mt-4">
+                <div class="lumon-stat-item">
+                    <span class="stat-label">Estado</span>
+                    <span class="stat-value text-success">
+                        <i class="fas fa-circle me-1"></i> Activo
+                    </span>
+                </div>
+                <div class="lumon-stat-item">
+                    <span class="stat-label">Tiempo de sesión</span>
+                    <span class="stat-value">
+                        <i class="fas fa-clock me-1"></i> <span id="session-time">00:00:00</span>
+                    </span>
+                </div>
+                <div class="lumon-stat-item">
+                    <span class="stat-label">Refinadores activos</span>
+                    <span class="stat-value">
+                        <i class="fas fa-users me-1"></i> {{ all_users|length }}
+                    </span>
+                </div>
+                <div class="lumon-stat-item">
+                    <span class="stat-label">Nivel de acceso</span>
+                    <span class="stat-value text-warning">
+                        <i class="fas fa-layer-group me-1"></i> Standard
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nueva sección de Clasificación de Números -->
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="mdr-panel">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mdr-title mb-0">Clasificación de Números</h3>
+                <div class="mdr-icon">
+                    <i class="fas fa-sort-numeric-down fa-2x"></i>
+                </div>
+            </div>
+            <p class="lumon-welcome">Clasifica y refina los números en sus categorías específicas para el análisis de macrodatos.</p>
+            <div class="mdr-categories mt-4 d-flex justify-content-between">
+                <div class="mdr-category">
+                    <div class="category-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h5>Estructurales</h5>
+                </div>
+                <div class="mdr-category">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5>Secuenciales</h5>
+                </div>
+                <div class="mdr-category">
+                    <div class="category-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h5>Divergentes</h5>
+                </div>
+                <div class="mdr-category">
+                    <div class="category-icon">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <h5>Oscilantes</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nueva sección de Características del departamento MDR -->
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="mdr-panel">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mdr-title mb-0">Características del departamento MDR</h3>
+                <div class="mdr-icon">
+                    <i class="fas fa-building fa-2x"></i>
+                </div>
+            </div>
+            <div class="mdr-features row">
+                <div class="col-md-8">
+                    <ul class="mdr-features-list">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Está ubicado en la planta de Lumon Industries</li>
+                        <li><i class="fas fa-id-badge me-2"></i> Los empleados de MDR llevan insignias azules</li>
+                        <li><i class="fas fa-expand me-2"></i> El espacio que ocupan es amplio y está prácticamente vacío</li>
+                        <li><i class="fas fa-coffee me-2"></i> Cuenta con una cocineta, un armario de suministros y un baño</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="mdr-building-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header text-center">
+                <h5><i class="fas fa-user-circle me-2"></i> Perfil del Refinador</h5>
+            </div>
+            <div class="card-body text-center">
+                <div class="lumon-avatar mb-3">{{ user.username[0].upper() }}</div>
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text text-muted">Refinador desde: {{ user.created_at.strftime('%d %b, %Y') }}</p>
+                <a href="{{ url_for('profile') }}" class="btn btn-primary">
+                    <i class="fas fa-id-card me-1"></i> Gestionar Perfil
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header text-center">
+                <h5><i class="fas fa-shield-alt me-2"></i> Seguridad</h5>
+            </div>
+            <div class="card-body text-center">
+                <i class="fas fa-lock dashboard-icon"></i>
+                <h5 class="card-title">Biométrica y Cibernética</h5>
+                <p class="card-text">Actualiza tus credenciales de acceso para mantener la seguridad de la compañía.</p>
+                <a href="{{ url_for('profile') }}#password" class="btn btn-primary">
+                    <i class="fas fa-key me-1"></i> Actualizar Credenciales
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header text-center">
+                <h5><i class="fas fa-chart-line me-2"></i> Estadísticas</h5>
+            </div>
+            <div class="card-body text-center">
+                <i class="fas fa-database dashboard-icon"></i>
+                <h5 class="card-title">Métricas de Rendimiento</h5>
+                <p class="card-text">Accede a tus métricas de refinado y rendimiento diario.</p>
+                <button class="btn btn-primary" disabled>
+                    <i class="fas fa-chart-bar me-1"></i> Ver Métricas
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header text-center">
+                <h5><i class="fas fa-door-open me-2"></i> Salida</h5>
+            </div>
+            <div class="card-body text-center">
+                <i class="fas fa-sign-out-alt dashboard-icon"></i>
+                <h5 class="card-title">Finalizar Sesión</h5>
+                <p class="card-text">Terminar tu sesión actual de refinamiento de datos.</p>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-primary">
+                    <i class="fas fa-power-off me-1"></i> Terminar Sesión
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mdr-panel">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mdr-title mb-0">Registro de Refinadores</h3>
+                <div class="lumon-controls">
+                    <span class="badge bg-success me-2">
+                        <i class="fas fa-users me-1"></i> {{ all_users|length }} Refinadores Activos
+                    </span>
+                    <span class="badge bg-info">
+                        <i class="fas fa-sync-alt me-1"></i> Actualizado: <span id="current-time"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-fingerprint me-1"></i> ID</th>
+                            <th><i class="fas fa-user me-1"></i> Refinador</th>
+                            <th><i class="fas fa-at me-1"></i> Contacto</th>
+                            <th><i class="fas fa-id-card me-1"></i> Identidad</th>
+                            <th><i class="fas fa-calendar-alt me-1"></i> Incorporación</th>
+                            <th><i class="fas fa-check-circle me-1"></i> Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in all_users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.full_name or 'No registrado' }}</td>
+                                <td>{{ user.created_at.strftime('%d %b, %Y') }}</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-circle me-1"></i> Activo
+                                    </span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .lumon-badge {
+        background-color: var(--lumon-green);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 3px;
+        font-weight: 500;
+    }
+    
+    .lumon-welcome {
+        color: var(--lumon-text);
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+    
+    .lumon-stats {
+        background-color: rgba(0, 27, 47, 0.7);
+        padding: 1rem;
+        border-radius: 5px;
+        border: 1px solid var(--lumon-light-blue);
+    }
+    
+    .lumon-stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--lumon-text);
+        opacity: 0.7;
+        margin-bottom: 0.3rem;
+    }
+    
+    .stat-value {
+        font-weight: 500;
+        color: var(--lumon-off-white);
+    }
+    
+    .lumon-avatar {
+        width: 80px;
+        height: 80px;
+        background-color: var(--lumon-green);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 auto;
+    }
+    
+    /* Estilos para la sección de Clasificación de Números */
+    .mdr-icon {
+        color: var(--lumon-text);
+        background-color: var(--lumon-light-blue);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mdr-categories {
+        background-color: rgba(0, 27, 47, 0.7);
+        padding: 1.5rem;
+        border-radius: 5px;
+        border: 1px solid var(--lumon-light-blue);
+    }
+    
+    .mdr-category {
+        text-align: center;
+        flex: 1;
+        padding: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .mdr-category:hover {
+        background-color: rgba(0, 51, 92, 0.5);
+        border-radius: 5px;
+    }
+    
+    .category-icon {
+        font-size: 2rem;
+        color: var(--lumon-text);
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Estilos para la sección de Características del departamento MDR */
+    .mdr-features-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .mdr-features-list li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(198, 245, 255, 0.1);
+        color: var(--lumon-text);
+        font-size: 1.1rem;
+    }
+    
+    .mdr-features-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .mdr-building-icon {
+        font-size: 8rem;
+        color: var(--lumon-text);
+        opacity: 0.6;
+        transform: rotate(90deg);
+        display: inline-block;
+        margin-top: 2rem;
+    }
+</style>
+
+<script>
+    // Actualizador de tiempo de sesión
+    let seconds = 0;
+    
+    function updateSessionTime() {
+        seconds++;
+        let hours = Math.floor(seconds / 3600);
+        let minutes = Math.floor((seconds % 3600) / 60);
+        let secs = seconds % 60;
+        
+        document.getElementById('session-time').textContent = 
+            (hours < 10 ? '0' + hours : hours) + ':' +
+            (minutes < 10 ? '0' + minutes : minutes) + ':' +
+            (secs < 10 ? '0' + secs : secs);
+    }
+    
+    // Actualizador de hora actual
+    function updateCurrentTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('es-ES', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        document.getElementById('current-time').textContent = timeString;
+    }
+    
+    // Iniciar actualizadores
+    setInterval(updateSessionTime, 1000);
+    setInterval(updateCurrentTime, 1000);
+    updateCurrentTime(); // Ejecutar inmediatamente para mostrar la hora
+</script>
+{% endblock %}

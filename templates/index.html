@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block title %}Lumon Industries - Refinado de Datos{% endblock %}
+
+{% block content %}
+<div class="jumbotron lumon-jumbotron p-5 mb-4 rounded">
+    <div class="container">
+        <h1 class="display-4">Bienvenido a Lumon Industries</h1>
+        <p class="lead">¡Inicia sesión o regístrate para ser parte del equipo de refinamiento de macrodatos (RMD)!</p>
+        <p class="lead-tagline mt-3"><strong>Pioneros en biotecnología. Comprometidos con el equilibrio entre el trabajo y la vida.</strong></p>
+        <p class="lead-description">Lumon Industries es la empresa de biotecnología líder en el mundo, mejorando la vida de toda la humanidad. Y con nuestra aclamada tecnología Severance, estamos haciendo que la experiencia laboral sea mejor que nunca.</p>
+        <p class="lead-description">El trabajo que Lumon Industries ha invertido en biotecnología de vanguardia ha culminado en nuestra tecnología Severance. El Microchip de Severance es el corazón de nuestro Procedimiento de Despido que cambia la vida, que permite lo último en equilibrio entre el trabajo y la vida.</p>
+        <p class="lumon-signature">-Edwin Alexander Zarate Pérez-</p>
+        {% if 'user_id' not in session %}
+            <div class="mt-4">
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-2">Registrarse</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
+            </div>
+        {% else %}
+            <div class="mt-4">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Acceder al MDR</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h5>Refinado de Datos</h5>
+                </div>
+                <div class="card-body text-center">
+                    <i class="fas fa-table fa-3x dashboard-icon mb-3"></i>
+                    <h3 class="card-title">Clasificación de Números</h3>
+                    <p class="card-text">Clasifica y refina los números en sus categorías específicas para el análisis de macrodatos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h5>Análisis de Secuencias</h5>
+                </div>
+                <div class="card-body text-center">
+                    <i class="fas fa-project-diagram fa-3x dashboard-icon mb-3"></i>
+                    <h3 class="card-title">Reconocimiento de Patrones</h3>
+                    <p class="card-text">Identifica patrones en secuencias numéricas para descubrir conexiones ocultas en los datos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h5>Seguridad</h5>
+                </div>
+                <div class="card-body text-center">
+                    <i class="fas fa-fingerprint fa-3x dashboard-icon mb-3"></i>
+                    <h3 class="card-title">Biometría Avanzada</h3>
+                    <p class="card-text">Acceso seguro mediante tecnología avanzada de reconocimiento y autenticación biométrica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-5">
+        <div class="col-md-12">
+            <div class="mdr-panel">
+                <h4 class="mdr-title">Valores de Lumon Industries</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent border-bottom border-light">
+                                <i class="fas fa-lightbulb me-2 text-warning"></i> 
+                                Claridad: Promover una visión clara y enfocada del propósito y las metas.
+                            </li>
+                            <li class="list-group-item bg-transparent border-bottom border-light">
+                                <i class="fas fa-shield-alt me-2 text-warning"></i> 
+                                Lealtad: Fidelidad absoluta a la empresa y sus objetivos.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent border-bottom border-light">
+                                <i class="fas fa-hammer me-2 text-warning"></i> 
+                                Laboriosidad: Trabajo constante y dedicado para lograr los objetivos de la organización.
+                            </li>
+                            <li class="list-group-item bg-transparent">
+                                <i class="fas fa-fire me-2 text-warning"></i> 
+                                Audacia: Valentía para enfrentar desafíos y tomar decisiones firmes.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Se eliminó la cita por solicitud del usuario -->
+</div>
+
+<style>
+    .lumon-jumbotron {
+        background-color: var(--lumon-blue);
+        border: 1px solid var(--lumon-light-blue);
+    }
+    
+    .lead-tagline {
+        color: var(--lumon-text);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.02em;
+    }
+    
+    .lead-description {
+        color: var(--lumon-text);
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+        max-width: 800px;
+    }
+    
+    .lumon-quote {
+        color: var(--lumon-text);
+        font-size: 1.5rem;
+        font-style: italic;
+        padding: 2rem;
+        border-left: 5px solid var(--lumon-green);
+        background-color: rgba(0, 27, 47, 0.8);
+    }
+    
+    .list-group-item {
+        color: var(--lumon-text);
+    }
+    
+    .lumon-signature {
+        color: var(--lumon-text);
+        font-size: 1rem;
+        font-style: italic;
+        text-align: right;
+        margin-bottom: 1.5rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}

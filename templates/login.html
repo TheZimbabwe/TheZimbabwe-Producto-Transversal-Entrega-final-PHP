@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Iniciar Sesión - Sistema de Gestión de Usuarios{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Iniciar Sesión en tu Cuenta</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" 
+                               value="{{ request.form.username }}" required autofocus>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
+                        <label class="form-check-label" for="remember_me">Recordarme</label>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                ¿No tienes una cuenta? <a href="{{ url_for('register') }}">Registrarse</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

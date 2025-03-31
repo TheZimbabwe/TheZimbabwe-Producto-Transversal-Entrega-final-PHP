@@ -1,0 +1,131 @@
+DIME PASO A PASO COMO HACER ESTO EN REPLIT CON CÓDIGOS INCLUIDOS Y EN QUE CARPETA O ARCHIVO IRÁ CADA UNO. QUE FUNCIONE TODO CORRECTAMENTE  Sección de Programación PHP: Agrega interactividad al sitio web utilizando PHP. Implementa formularios que permitan enviar datos al servidor y mostrar una respuesta. Utiliza cookies y sesiones para mantener la información del usuario durante su visita al sitio web. Realiza validaciones de datos ingresados en los formularios utilizando expresiones regulares. Implementa también funcionalidades de manejo de ficheros y sistema de ficheros. Utiliza archivos PHP para manejar la lógica del lado del servidor. Puedes crear archivos PHP según las funcionalidades requeridas, como "registro.php" para el registro de usuarios o "login.php" para el inicio de sesión. Un documento que explique las funcionalidades agregadas utilizando PHP, incluyendo ejemplos de uso y explicación del código. 
+
+Enumera y describe las funcionalidades que has agregado al proyecto utilizando PHP. Pueden ser funcionalidades como registro de usuarios, inicio de sesión, envío de formularios, generación de informes, etc. 
+
+Proporciona ejemplos de uso de estas funcionalidades utilizando código PHP. Puedes mostrar fragmentos de código que demuestren cómo se implementan estas funcionalidades en el proyecto. 
+
+Explica el propósito y la lógica detrás de cada funcionalidad. Describe cómo interactúa con el front-end, cómo procesa los datos y cómo se manejan los resultados. 
+
+Asegúrate de utilizar un lenguaje claro y conciso en tus explicaciones, de manera que los lectores puedan comprender fácilmente cómo se utilizan y funcionan las funcionalidades implementadas en PHP. Muestra ejemplos de manipulación de bases de datos utilizando controles de acceso a datos y herramientas de acceso a datos en PHP. 
+
+Presenta ejemplos de cómo se establece una conexión a la base de datos utilizando controles de acceso a datos y herramientas de acceso a datos en PHP. A continuación, se detallan los pasos para mostrar ejemplos de manipulación de bases de datos: 
+
+Establecer una conexión a la base de datos: 
+
+Utiliza el controlador adecuado para conectarte a la base de datos, como PDO (PHP Data Objects) o mysqli. 
+
+Proporciona los detalles de conexión, como el nombre de host, el nombre de usuario, la contraseña y el nombre de la base de datos. 
+
+Ejemplo de código utilizando PDO: $dsn = "mysql:host=localhost;dbname=nombre_basedatos"; 
+
+$username = "nombre_usuario"; 
+
+$password = "contraseña"; 
+
+ 
+
+try { 
+
+    $conexion = new PDO($dsn, $username, $password); 
+
+    // Realiza operaciones en la base de datos 
+
+} catch (PDOException $e) { 
+
+    echo "Error al conectar a la base de datos: " . $e->getMessage(); 
+
+} 
+
+ 
+
+Ejecutar consultas en la base de datos: 
+
+Utiliza métodos proporcionados por el controlador de acceso a datos para ejecutar consultas SQL, como SELECT, INSERT, UPDATE o DELETE. 
+
+Prepara la consulta utilizando parámetros para evitar vulnerabilidades de seguridad, como inyección de SQL. 
+
+Ejemplo de código utilizando PDO: 
+
+// Preparar consulta 
+
+$consulta = $conexion->prepare("SELECT * FROM usuarios WHERE id = :id"); 
+
+ 
+
+// Asignar valores a los parámetros 
+
+$id = 1; 
+
+$consulta->bindParam(':id', $id); 
+
+ 
+
+// Ejecutar la consulta 
+
+$consulta->execute(); 
+
+ 
+
+// Obtener resultados 
+
+$resultados = $consulta->fetchAll(PDO::FETCH_ASSOC); 
+
+ 
+
+// Iterar sobre los resultados 
+
+foreach ($resultados as $fila) { 
+
+    echo $fila['nombre']; 
+
+} 
+
+ 
+
+Realizar operaciones de inserción, actualización y eliminación: 
+
+Utiliza consultas SQL adecuadas para realizar operaciones de inserción, actualización y eliminación de datos en la base de datos. 
+
+Ejemplo de código utilizando PDO: 
+
+// Insertar datos 
+
+$consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email) VALUES (:nombre, :email)"); 
+
+$nombre = "John Doe"; 
+
+$email = "john.doe@example.com"; 
+
+$consulta->bindParam(':nombre', $nombre); 
+
+$consulta->bindParam(':email', $email); 
+
+$consulta->execute(); 
+
+ 
+
+// Actualizar datos 
+
+$consulta = $conexion->prepare("UPDATE usuarios SET nombre = :nombre WHERE id = :id"); 
+
+$nombre = "Jane Doe"; 
+
+$id = 1; 
+
+$consulta->bindParam(':nombre', $nombre); 
+
+$consulta->bindParam(':id', $id); 
+
+$consulta->execute(); 
+
+ 
+
+// Eliminar datos 
+
+$consulta = $conexion->prepare("DELETE FROM usuarios WHERE id = :id"); 
+
+$id = 1; 
+
+$consulta->bindParam(':id', $id); 
+
+$consulta->execute(); Estos son solo ejemplos básicos de manipulación de bases de datos utilizando controles de acceso a datos y herramientas de acceso a datos en PHP. Recuerda adaptar los ejemplos a tu estructura de base de datos y requerimientos específicos. HAZ TODO ESTO PARA REPLIT
