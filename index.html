@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Usabilidad Web</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #001b2f; /* Fondo azul oscuro */
+            color: white; /* Texto blanco */
+        }
+
+        h1, h2, h3 {
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4da6ff;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid #4da6ff;
+        }
+
+        /* Secciones */
+        .seccion {
+            background: #002a4d;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Ejemplos interactivos */
+        .ejemplo {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #4da6ff;
+            border-radius: 5px;
+        }
+
+        .bueno {
+            background-color: #003d1a; /* Verde oscuro */
+            border-left: 5px solid #00cc66;
+        }
+
+        .malo {
+            background-color: #4d0000; /* Rojo oscuro */
+            border-left: 5px solid #ff3333;
+        }
+
+        /* Botones y elementos interactivos */
+        button {
+            background-color: #4da6ff;
+            color: #001b2f;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #80bfff;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #4da6ff;
+            border-radius: 4px;
+            background-color: #002a4d;
+            color: white;
+        }
+
+        input::placeholder {
+            color: #b3c6ff;
+        }
+
+        /* Feedback visual */
+        #feedback {
+            background-color: #4da6ff;
+            color: #001b2f;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        /* Navegación comparativa */
+        .nav-ejemplo {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .nav-buena a {
+            color: #4da6ff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px;
+            border-bottom: 2px solid #4da6ff;
+        }
+
+        .nav-mala a {
+            color: #ff9999;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guía de Usabilidad Web</h1>
+
+    <!-- ===== SECCIÓN 1: DISEÑO DE EXPERIENCIA DE USUARIO (UX) ===== -->
+    <div class="seccion">
+        <h2>1. Diseño de Experiencia de Usuario (UX)</h2>
+        <p><strong>Definición:</strong> El UX se enfoca en cómo el usuario <strong>percibe y siente</strong> la interacción con un producto digital. Incluye:</p>
+        <ul>
+            <li>Facilidad de uso</li>
+            <li>Accesibilidad</li>
+            <li>Feedback visual</li>
+            <li>Emociones generadas</li>
+        </ul>
+
+        <div class="ejemplo">
+            <h3>Ejemplo: Feedback Visual</h3>
+            <p>Un buen UX proporciona respuestas inmediatas a las acciones del usuario.</p>
+            
+            <button onclick="mostrarFeedback()">Haz clic aquí</button>
+            <div id="feedback">¡Acción completada con éxito!</div>
+            
+            <p><strong>¿Por qué es importante?</strong> Sin feedback, el usuario no sabe si su acción tuvo efecto.</p>
+        </div>
+    </div>
+
+    <!-- ===== SECCIÓN 2: DISEÑO CENTRADO EN EL USUARIO (UI) ===== -->
+    <div class="seccion">
+        <h2>2. Diseño de Interfaces Centrado en el Usuario (UI)</h2>
+        <p><strong>Definición:</strong> El UI se refiere a <strong>cómo se presenta la información</strong> y cómo el usuario interactúa con ella.</p>
+        <ul>
+            <li>Elementos claros y reconocibles</li>
+            <li>Jerarquía visual</li>
+            <li>Consistencia en botones y formularios</li>
+        </ul>
+
+        <div class="ejemplo bueno">
+            <h3>Buen Diseño UI</h3>
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" placeholder="Ej: Edwin Alexander">
+            <button onclick="alert('Formulario enviado correctamente')">Enviar</button>
+            <p><strong>¿Por qué funciona?</strong> Tiene etiquetas claras, un placeholder de ejemplo y un botón descriptivo.</p>
+        </div>
+
+        <div class="ejemplo malo">
+            <h3>Mal Diseño UI</h3>
+            <input type="text">
+            <button>OK</button>
+            <p><strong>Problemas:</strong> No hay etiquetas, el botón no indica su función y no hay guía para el usuario.</p>
+        </div>
+    </div>
+
+    <!-- ===== SECCIÓN 3: ARQUITECTURA DE INFORMACIÓN ===== -->
+    <div class="seccion">
+        <h2>3. Arquitectura de Información</h2>
+        <p><strong>Definición:</strong> Organiza la información de manera <strong>lógica y accesible</strong> para que los usuarios encuentren lo que buscan.</p>
+        <ul>
+            <li>Estructura clara de navegación</li>
+            <li>Terminología consistente</li>
+            <li>Agrupación intuitiva de contenido</li>
+        </ul>
+
+        <div class="ejemplo bueno">
+            <h3>Buena Arquitectura</h3>
+            <nav class="nav-ejemplo nav-buena">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <p><strong>¿Por qué funciona?</strong> Usa términos familiares y una estructura simple.</p>
+        </div>
+
+        <div class="ejemplo malo">
+            <h3>Mala Arquitectura</h3>
+            <nav class="nav-ejemplo nav-mala">
+                <a href="#pagina1">Sección A</a>
+                <a href="#pagina2">Recursos</a>
+                <a href="#pagina3">Info</a>
+            </nav>
+            <p><strong>Problemas:</strong> Términos ambiguos y falta de jerarquía.</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar feedback (Sección 1)
+        function mostrarFeedback() {
+            const feedback = document.getElementById('feedback');
+            feedback.style.opacity = '1';
+            setTimeout(() => {
+                feedback.style.opacity = '0';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Funcional - Usabilidad Web</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #001b2f;
+            color: white;
+        }
+        h1, h2, h3 { color: white; }
+        h1 { 
+            text-align: center; 
+            border-bottom: 2px solid #4da6ff; 
+            padding-bottom: 10px; 
+        }
+        .seccion {
+            background: #002a4d;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            background-color: #4da6ff;
+            color: #001b2f;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #80bfff;
+        }
+        input, select {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #003366;
+            color: white;
+            border: 1px solid #4da6ff;
+            border-radius: 4px;
+            width: 200px;
+        }
+        #resultado { 
+            background-color: #003366;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            min-height: 50px;
+        }
+        .item-lista {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #003d1a;
+            border-left: 3px solid #00cc66;
+        }
+        #caja-estilo {
+            width: 100px;
+            height: 100px;
+            background-color: #4da6ff;
+            margin: 15px 0;
+            transition: all 0.3s;
+        }
+        .nav-boton {
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Funcional</h1>
+
+    <!-- === SECCIÓN 1: Manipulación Básica del DOM === -->
+    <div class="seccion">
+        <h2>1. Cambiar Contenido Dinámico</h2>
+        <p id="texto-ejemplo">Este texto cambiará al hacer clic.</p>
+        <button id="cambiar-texto">Cambiar Texto</button>
+    </div>
+
+    <!-- === SECCIÓN 2: Bucle y Condicionales === -->
+    <div class="seccion">
+        <h2>2. Generador de Listas</h2>
+        <input type="number" id="numero-items" placeholder="Número de elementos" min="1" max="10">
+        <select id="tipo-lista">
+            <option value="pares">Números Pares</option>
+            <option value="impares">Números Impares</option>
+            <option value="random">Números Aleatorios</option>
+        </select>
+        <button id="generar-lista">Generar Lista</button>
+        <div id="lista-container"></div>
+    </div>
+
+    <!-- === SECCIÓN 3: Eventos y Estilos === -->
+    <div class="seccion">
+        <h2>3. Cambiar Estilos con JS</h2>
+        <div id="caja-estilo"></div>
+        <button id="cambiar-color">Cambiar Color</button>
+        <button id="alternar-borde">Alternar Borde</button>
+    </div>
+
+    <!-- Enlace de vuelta a la página principal -->
+    <a href="index.html" class="nav-boton" style="background-color: #00cc66;">
+        ← Volver a la página principal
+    </a>
+
+    <script>
+        // === 1. Manipulación Básica del DOM ===
+        document.getElementById('cambiar-texto').addEventListener('click', function() {
+            const elemento = document.getElementById("texto-ejemplo");
+            elemento.textContent = "¡Texto cambiado exitosamente con JavaScript!";
+            elemento.style.color = "#4da6ff";
+            elemento.style.fontWeight = "bold";
+        });
+
+        // === 2. Bucle y Condicionales (Generador de Listas) ===
+        document.getElementById('generar-lista').addEventListener('click', function() {
+            const cantidad = parseInt(document.getElementById("numero-items").value) || 0;
+            const tipo = document.getElementById("tipo-lista").value;
+            const container = document.getElementById("lista-container");
+
+            // Limpiar lista anterior
+            container.innerHTML = '';
+
+            if (cantidad <= 0 || cantidad > 10) {
+                container.innerHTML = '<p style="color: #ff6b6b">Ingresa un número entre 1 y 10</p>';
+                return;
+            }
+
+            for (let i = 1; i <= cantidad; i++) {
+                const item = document.createElement('div');
+                item.className = 'item-lista';
+
+                let valor;
+                if (tipo === "pares") {
+                    valor = i * 2;
+                } else if (tipo === "impares") {
+                    valor = i * 2 - 1;
+                } else {
+                    valor = Math.floor(Math.random() * 100) + 1;
+                }
+
+                item.textContent = `Elemento ${i}: ${valor}`;
+                container.appendChild(item);
+            }
+        });
+
+        // === 3. Eventos y Estilos ===
+        const colores = ["#4da6ff", "#ff6b6b", "#66ff66", "#ffcc00", "#a64dff"];
+        let colorIndex = 0;
+        const caja = document.getElementById("caja-estilo");
+
+        document.getElementById('cambiar-color').addEventListener('click', function() {
+            colorIndex = (colorIndex + 1) % colores.length;
+            caja.style.backgroundColor = colores[colorIndex];
+        });
+
+        document.getElementById('alternar-borde').addEventListener('click', function() {
+            if (caja.style.border) {
+                caja.style.border = "";
+            } else {
+                caja.style.border = "5px solid white";
+                caja.style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.7)";
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Usuarios - Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #001b2f;
+            color: white;
+        }
+        .seccion {
+            background: #002a4d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        input, button, select {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #003366;
+            color: white;
+            border: 1px solid #4da6ff;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4da6ff;
+            color: #001b2f;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #80bfff;
+        }
+        .error { color: #ff6b6b; }
+        .success { color: #00cc66; }
+        #preview-foto {
+            max-width: 150px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        .archivo-item {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #003d1a;
+            border-left: 3px solid #00cc66;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- === Perfil de Usuario (visible después de registro) === -->
+    <div class="seccion" id="seccion-perfil" style="display: none;">
+        <h2>Tu Perfil</h2>
+        <p>Nombre: <span id="perfil-nombre"></span></p>
+        <p>Email: <span id="perfil-email"></span></p>
+        <img id="perfil-foto" style="max-width: 150px; display: none;">
+
+        <h3>Subir Archivo</h3>
+        <form id="form-archivo">
+            <input type="file" id="archivo" name="archivo">
+            <button type="submit">Subir</button>
+        </form>
+
+        <h3>Tus Archivos:</h3>
+        <div id="lista-archivos"></div>
+
+        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+
+    <script>
+        // === Simulación de Base de Datos en localStorage ===
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        let archivos = JSON.parse(localStorage.getItem('archivos')) || [];
+        let usuarioActual = JSON.parse(sessionStorage.getItem('usuarioActual'));
+
+        // === Mostrar u ocultar secciones según estado ===
+        function actualizarVista() {
+            if (usuarioActual) {
+                document.getElementById('seccion-registro').style.display = 'none';
+                document.getElementById('seccion-perfil').style.display = 'block';
+                document.getElementById('perfil-nombre').textContent = usuarioActual.nombre;
+                document.getElementById('perfil-email').textContent = usuarioActual.email;
+
+                if (usuarioActual.foto) {
+                    document.getElementById('perfil-foto').src = usuarioActual.foto;
+                    document.getElementById('perfil-foto').style.display = 'block';
+                }
+
+                actualizarListaArchivos();
+            } else {
+                document.getElementById('seccion-registro').style.display = 'block';
+                document.getElementById('seccion-perfil').style.display = 'none';
+            }
+        }
+
+        // === Validación con Expresiones Regulares ===
+        function validarRegistro(nombre, email, password) {
+            const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,50}$/;
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+            if (!regexNombre.test(nombre)) {
+                return "El nombre solo debe contener letras y espacios (3-50 caracteres)";
+            }
+
+            if (!regexEmail.test(email)) {
+                return "Ingresa un email válido";
+            }
+
+            if (!regexPassword.test(password)) {
+                return "La contraseña debe tener al menos 8 caracteres, una letra y un número";
+            }
+
+            return true;
+        }
+
+        // === Procesar Formulario de Registro ===
+        document.getElementById('form-registro').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const fotoInput = document.getElementById('foto');
+
+            const validacion = validarRegistro(nombre, email, password);
+
+            if (validacion !== true) {
+                document.getElementById('mensaje-error').textContent = validacion;
+                return;
+            }
+
+            // Simular registro de usuario
+            const nuevoUsuario = {
+                id: Date.now(),
+                nombre,
+                email,
+                password, // En un caso real, esto debería estar encriptado
+                foto: null
+            };
+
+            // Procesar imagen si existe
+            if (fotoInput.files.length > 0) {
+                const foto = fotoInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    nuevoUsuario.foto = e.target.result;
+                    completarRegistro(nuevoUsuario);
+                };
+
+                reader.readAsDataURL(foto);
+            } else {
+                completarRegistro(nuevoUsuario);
+            }
+        });
+
+        function completarRegistro(usuario) {
+            usuarios.push(usuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            // Iniciar sesión
+            usuarioActual = usuario;
+            sessionStorage.setItem('usuarioActual', JSON.stringify(usuario));
+
+            mostrarMensaje('¡Registro exitoso!', 'success');
+            actualizarVista();
+        }
+
+        // === Subida de Archivos ===
+        document.getElementById('form-archivo').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const archivoInput = document.getElementById('archivo');
+
+            if (archivoInput.files.length === 0) {
+                mostrarMensaje('Selecciona un archivo', 'error');
+                return;
+            }
+
+            const archivo = archivoInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const nuevoArchivo = {
+                    id: Date.now(),
+                    usuarioId: usuarioActual.id,
+                    nombre: archivo.name,
+                    tipo: archivo.type,
+                    contenido: e.target.result,
+                    fecha: new Date().toLocaleString()
+                };
+
+                archivos.push(nuevoArchivo);
+                localStorage.setItem('archivos', JSON.stringify(archivos));
+
+                mostrarMensaje('Archivo subido correctamente', 'success');
+                actualizarListaArchivos();
+                document.getElementById('form-archivo').reset();
+            };
+
+            reader.readAsDataURL(archivo);
+        });
+
+        function actualizarListaArchivos() {
+            const lista = document.getElementById('lista-archivos');
+            lista.innerHTML = '';
+
+            const archivosUsuario = archivos.filter(a => a.usuarioId === usuarioActual.id);
+
+            if (archivosUsuario.length === 0) {
+                lista.innerHTML = '<p>No hay archivos subidos.</p>';
+                return;
+            }
+
+            archivosUsuario.forEach(archivo => {
+                const item = document.createElement('div');
+                item.className = 'archivo-item';
+                item.innerHTML = `
+                    <strong>${archivo.nombre}</strong>
+                    <small>${archivo.fecha}</small>
+                    <button onclick="descargarArchivo('${archivo.id}')">Descargar</button>
+                `;
+                lista.appendChild(item);
+            });
+        }
+
+        function descargarArchivo(archivoId) {
+            const archivo = archivos.find(a => a.id === parseInt(archivoId));
+
+            if (!archivo) return;
+
+            const link = document.createElement('a');
+            link.href = archivo.contenido;
+            link.download = archivo.nombre;
+            link.click();
+        }
+
+        // === Cerrar Sesión ===
+        function cerrarSesion() {
+            sessionStorage.removeItem('usuarioActual');
+            usuarioActual = null;
+            mostrarMensaje('Sesión cerrada', 'success');
+            actualizarVista();
+        }
+
+        // === Preview de Foto ===
+        document.getElementById('foto').addEventListener('change', function(e) {
+            const preview = document.getElementById('preview-foto');
+            const file = e.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+
+        // === Mostrar Mensajes ===
+        function mostrarMensaje(texto, tipo) {
+            document.getElementById('mensaje-error').textContent = '';
+            document.getElementById('mensaje-success').textContent = '';
+
+            if (tipo === 'error') {
+                document.getElementById('mensaje-error').textContent = texto;
+            } else {
+                document.getElementById('mensaje-success').textContent = texto;
+            }
+
+            setTimeout(() => {
+                document.getElementById('mensaje-error').textContent = '';
+                document.getElementById('mensaje-success').textContent = '';
+            }, 5000);
+        }
+
+        // === Inicialización ===
+        actualizarVista();
+    </script>
+</body>
+</html>
